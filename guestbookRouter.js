@@ -42,7 +42,8 @@ router.post('/newmessage', (req, res) => {
     }
 
     const messages = JSON.parse(data);
-    messages.push({ username: username, country: country, message: message });
+    const id = generateId(); // Generate a new ID
+    messages.push({ id: id, name: username, country: country, message: message, date: new Date().toISOString() });
 
     // Write the updated messages array back to the file
     fs.writeFile('messages.json', JSON.stringify(messages), (err) => {
