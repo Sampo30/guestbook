@@ -1,0 +1,59 @@
+/* change the background color of the body */
+body {
+    background-color: #f0f0f0;
+  }
+  
+  /* center the form on the page */
+  form {
+    margin: auto;
+    width: 50%;
+  }
+  
+  /* style the form inputs */
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  /* style the form button */
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* style the form button on hover */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* add some margin at the bottom of the form */
+  form {
+    margin-bottom: 50px;
+  }
+  
+  /* style the table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  /* style the table header cells */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+  }
+  
+  /* style the table cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  

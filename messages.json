@@ -1,0 +1,24 @@
+
+[
+      {
+        "id": 1,
+        "name": "John",
+        "country": "United States",
+        "message": "Hello, guestbook!",
+        "date": "2023-02-16T08:15:30Z"
+      },
+      {
+        "id": 2,
+        "name": "Jane",
+        "country": "Canada",
+        "message": "Nice website, keep up the good work!",
+        "date": "2023-02-16T10:30:45Z"
+      },
+      {
+        "id": 3,
+        "name": "Bob",
+        "country": "United Kingdom",
+        "message": "Great job on the site, guys!",
+        "date": "2023-02-16T13:45:15Z"
+      }
+    ]

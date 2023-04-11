@@ -1,0 +1,26 @@
+<!-- newmessage.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Message</title>
+</head>
+<body>
+  <h1>New Message</h1>
+  <form action="/newmessage" method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
