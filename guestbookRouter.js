@@ -42,8 +42,9 @@ router.post('/newmessage', (req, res) => {
     }
 
     const messages = JSON.parse(data);
+    const id = messages.length + 1;
     const newMessage = {
-      id: messages.length + 1,
+      id: id,
       name: name,
       country: country,
       message: message,
