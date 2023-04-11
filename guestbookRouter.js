@@ -23,17 +23,16 @@ router.get('/newmessage', (req, res) => {
 
 // Handle POST requests to the "/newmessage" path
 router.post('/newmessage', (req, res) => {
-  const username = req.body.username;
+  const name = req.body.name;
   const country = req.body.country;
   const message = req.body.message;
 
   // Validate that all fields are filled out
-  if (!username || !country || !message) {
+  if (!name || !country || !message) {
     res.status(400).send('All fields are required');
     return;
   }
 
-  // Add the new message to the messages array
   fs.readFile('messages.json', (err, data) => {
     if (err) {
       console.log(err);
@@ -42,7 +41,7 @@ router.post('/newmessage', (req, res) => {
     }
 
     const messages = JSON.parse(data);
-    const id = messages.length + 1;
+    const id = messages.length + 1; // Generate a new ID
     const newMessage = {
       id: id,
       name: name,
@@ -52,7 +51,6 @@ router.post('/newmessage', (req, res) => {
     };
     messages.push(newMessage);
 
-    // Write the updated messages array back to the file
     fs.writeFile('messages.json', JSON.stringify(messages), (err) => {
       if (err) {
         console.log(err);
@@ -64,5 +62,6 @@ router.post('/newmessage', (req, res) => {
     });
   });
 });
+
 
 module.exports = router;
