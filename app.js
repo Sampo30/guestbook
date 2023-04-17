@@ -58,6 +58,34 @@ app.post('/newmessage', (req, res) => {
   res.redirect('/guestbook');
 });
 
+app.post('/ajaxmessage', (req, res) => {
+  const { username, country, message } = req.body;
+
+  // Check that all fields are non-empty
+  if (!username || !country || !message) {
+    return res.status(400).json({ error: 'All fields are required.' });
+  }
+
+  // Create new message object
+  const newMessage = {
+    id: uuidv4(),
+    username: username,
+    country: country,
+    message: message,
+    date: new Date().toLocaleString(),
+  };
+
+  // Add new message to messages array
+  messages.push(newMessage);
+
+  // Save updated messages to messages.json file
+  fs.writeFileSync('messages.json', JSON.stringify(messages));
+
+  // Return updated messages array as JSON
+  res.json({ messages: messages });
+});
+
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
