@@ -58,10 +58,9 @@ router.post('/newmessage', (req, res) => {
         return;
       }
 
-      res.redirect('/guestbook');
+      res.json({message: 'Success'});
     });
   });
 });
-
 
 module.exports = router;
