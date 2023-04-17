@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ajax Message</title>
+  </head>
+  <body>
+    <h1>Ajax Message</h1>
+    <form id="message-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required><br><br>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+    
+    <div id="messages">
+      <% messages.forEach(function(message) { %>
+        <div>
+          <h4><%= message.username %> from <%= message.country %></h4>
+          <p><%= message.message %></p>
+          <p><%= message.date %></p>
+        </div>
+      <% }) %>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function() {
+        $('#message-form').submit(function(event) {
+          event.preventDefault();
+          var formData = $(this).serialize();
+          
+          $.ajax({
+            url: '/ajaxmessage',
+            type: 'POST',
+            data: formData,
+            success: function(data) {
+              var messagesHtml = '';
+              data.messages.forEach(function(message) {
+                messagesHtml += '<div>' +
+                  '<h4>' + message.username + ' from ' + message.country + '</h4>' +
+                  '<p>' + message.message + '</p>' +
+                  '<p>' + message.date + '</p>' +
+                  '</div>';
+              });
+              $('#messages').html(messagesHtml);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              alert('Error submitting message: ' + errorThrown);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

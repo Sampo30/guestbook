@@ -28,6 +28,11 @@ app.get('/newmessage', (req, res) => {
   res.render('newmessage');
 });
 
+app.get('/ajaxmessage', (req, res) => {
+  res.render('ajaxmessage', { messages: messages });
+});
+
+
 app.post('/newmessage', (req, res) => {
   const { name, country, message } = req.body;
 
